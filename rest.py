@@ -17,7 +17,7 @@ app = web.application(urls, globals())
 driver = webdriver.PhantomJS()
 
 def my_loadhook():
-    print "my load hook"
+    #print "my load hook"
     driver = webdriver.PhantomJS()
 
 
