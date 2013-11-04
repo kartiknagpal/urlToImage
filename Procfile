@@ -1,1 +1,1 @@
-web: python2 rest.py
+web: python rest.py
