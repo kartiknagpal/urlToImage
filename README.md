@@ -3,7 +3,7 @@
 ####Dependencies:<br/>
     * web.py
     * selenium
-    * phantomJS (not bundled)
+    * phantomJS
 #####Note: No need to install dependencies manually, included within the package itself.
 
 ```python
