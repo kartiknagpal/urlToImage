@@ -1,0 +1,6 @@
+phantomjs==1.9.2
+pyalpm==0.6.2
+pygobject==3.8.3
+selenium==2.37.2
+setuptools-git==0.4.2
+utils==0.5
