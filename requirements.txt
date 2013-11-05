@@ -1,3 +1,2 @@
-selenium==2.37.2
-setuptools-git==0.4.2
-utils==0.5
+web.py
+selenium
