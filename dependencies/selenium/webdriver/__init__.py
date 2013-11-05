@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 #
 # Copyright 2008-2010 Webdriver_name committers
 # Copyright 2008-2010 Google Inc.
@@ -21,6 +21,7 @@ from .chrome.webdriver import WebDriver as Chrome
 from .chrome.options import Options as ChromeOptions
 from .ie.webdriver import WebDriver as Ie
 from .opera.webdriver import WebDriver as Opera
+from .safari.webdriver import WebDriver as Safari
 from .phantomjs.webdriver import WebDriver as PhantomJS
 from .remote.webdriver import WebDriver as Remote
 from .common.desired_capabilities import DesiredCapabilities
@@ -28,4 +29,4 @@ from .common.action_chains import ActionChains
 from .common.touch_actions import TouchActions
 from .common.proxy import Proxy
 
-__version__ = '2.35.0'
+__version__ = '2.37.2'

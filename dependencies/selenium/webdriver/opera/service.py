@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 #
 # Copyright 2011 Webdriver_name committers
 # Copyright 2011 Google Inc.

@@ -26,10 +26,9 @@ from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.common.html5.application_cache import ApplicationCache
 
 try:
-    bytes
-except NameError: # Python 2.x compatibility
-    bytes = str
-    str = unicode
+    str = basestring
+except NameError:
+    pass
 
 class WebDriver(object):
     """
@@ -672,8 +671,10 @@ class WebDriver(object):
 
         :Usage:
             Use the corresponding find_element_by_* instead of this.
+
+        :rtype: WebElement
         """
-        if isinstance(by, tuple) or isinstance(value, int) or value==None:
+        if not By.is_valid(by) or not isinstance(value, str):
             raise InvalidSelectorException("Invalid locator values passed in")
 
         return self.execute(Command.FIND_ELEMENT,
@@ -685,8 +686,10 @@ class WebDriver(object):
 
         :Usage:
             Use the corresponding find_elements_by_* instead of this.
+
+        :rtype: list of WebElement
         """
-        if isinstance(by, tuple) or isinstance(value, int) or value==None:
+        if not By.is_valid(by) or not isinstance(value, str):
             raise InvalidSelectorException("Invalid locator values passed in")
 
         return self.execute(Command.FIND_ELEMENTS,

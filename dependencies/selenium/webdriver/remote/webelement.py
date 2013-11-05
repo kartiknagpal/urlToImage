@@ -29,6 +29,11 @@ from selenium.common.exceptions import InvalidSelectorException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
+try:
+    str = basestring
+except NameError:
+    pass
+
 
 class WebElement(object):
     """Represents an HTML element.
@@ -69,7 +74,7 @@ class WebElement(object):
             attributeValue = None
         else:
             attributeValue = resp['value']
-            if attributeValue.lower() in ('true', 'false'):
+            if name != 'value' and attributeValue.lower() in ('true', 'false'):
                 attributeValue = attributeValue.lower()
 
         return attributeValue
@@ -153,7 +158,7 @@ class WebElement(object):
             if isinstance(val, Keys):
                 typing.append(val)
             elif isinstance(val, int):
-                val = str(val)
+                val = val.__str__()
                 for i in range(len(val)):
                     typing.append(val[i])
             else:
@@ -228,14 +233,14 @@ class WebElement(object):
         return self._parent.execute(command, params)
 
     def find_element(self, by=By.ID, value=None):
-        if isinstance(by, tuple) or isinstance(value, int) or value==None:
+        if not By.is_valid(by) or not isinstance(value, str):
             raise InvalidSelectorException("Invalid locator values passed in")
         
         return self._execute(Command.FIND_CHILD_ELEMENT,
                              {"using": by, "value": value})['value']
 
     def find_elements(self, by=By.ID, value=None):
-        if isinstance(by, tuple) or isinstance(value, int) or value==None:
+        if not By.is_valid(by) or not isinstance(value, str):
             raise InvalidSelectorException("Invalid locator values passed in")
         
         return self._execute(Command.FIND_CHILD_ELEMENTS,
@@ -269,7 +274,7 @@ class LocalFileDetector(object):
             if isinstance(val, Keys):
                 typing.append(val)
             elif isinstance(val, int):
-                val = str(val)
+                val = val.__str__()
                 for i in range(len(val)):
                     typing.append(val[i])
             else:

@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 #
 # Copyright 2011 Webdriver_name committers
 # Copyright 2011 Google Inc.
@@ -64,7 +64,7 @@ class Service(object):
         except:
             raise WebDriverException(
                 "ChromeDriver executable needs to be available in the path. \
-                Please download from http://code.google.com/p/selenium/downloads/list\
+                Please download from http://chromedriver.storage.googleapis.com/index.html\
                 and read up at http://code.google.com/p/selenium/wiki/ChromeDriver")
         count = 0
         while not utils.is_connectable(self.port):
