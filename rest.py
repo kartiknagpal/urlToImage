@@ -1,8 +1,8 @@
 #!/usr/bin/env python2
 
-import web
+from dependencies import web
 from pyhotshot import screenshot
-from selenium import webdriver
+from dependencies.selenium import webdriver
 #import xml.etree.ElementTree as ET
 
 # tree = ET.parse('acess_key.xml')

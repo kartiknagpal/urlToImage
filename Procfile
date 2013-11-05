@@ -1,1 +1,1 @@
-web: python rest.py ${PORT}
+web: python2 rest.py 8080
